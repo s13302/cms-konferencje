@@ -1,12 +1,17 @@
 <?php
-	$host = getenv('DB_HOST');
-	$user = getenv('DB_USER');
-	$pass = getenv('DB_PASS');
-	$name = getenv('DB_NAME');
-	echo "mysqli_connect($host, $user, $pass, $name);<br>";
-	$conn = mysqli_connect($host, $user, $pass, $name);
-	if (!$conn) {
-		die("Connection failed: " . mysqli_connect_error());
-	}
-	echo "<b>Connection successfull</b>";
-	mysqli_close($conn);
+/**
+ * Front to the WordPress application. This file doesn't do anything, but loads
+ * wp-blog-header.php which does and tells WordPress to load the theme.
+ *
+ * @package WordPress
+ */
+
+/**
+ * Tells WordPress to load the WordPress theme and output it.
+ *
+ * @var bool
+ */
+define('WP_USE_THEMES', true);
+
+/** Loads the WordPress Environment and Template */
+require( dirname( __FILE__ ) . '/wp-blog-header.php' );
