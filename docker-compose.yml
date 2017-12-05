@@ -1,0 +1,44 @@
+version: '3'
+
+services:
+   db:
+     image: mysql:5.7
+     ports:
+       - "3306:3306"
+     volumes:
+       - db_data:/var/lib/mysql
+     restart: always
+     environment:
+       MYSQL_ROOT_PASSWORD: somewordpress
+       MYSQL_DATABASE: cms
+       MYSQL_USER: cms
+       MYSQL_PASSWORD: cms
+   phpmyadmin:
+     depends_on:
+       - db
+     image: phpmyadmin/phpmyadmin
+     ports:
+       - "8080:80"
+     restart: always
+     environment:
+       PMA_ARBITRARY: 1
+       PMA_HOST: db
+       PMA_PORT: 3306
+       PMA_USER: root
+       PMA_PASSWORD: somewordpress
+   php:
+     depends_on:
+       - db
+     image: cms
+     volumes:
+       - $PWD/src/:/var/www/html
+     ports:
+       - "80:80"
+     restart: always
+     environment:
+       DB_HOST: db:3306
+       DB_USER: cms
+       DB_PASS: cms
+       DB_NAME: cms
+volumes:
+    db_data:
