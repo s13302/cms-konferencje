@@ -18,8 +18,8 @@ function konferencje_meta_save( $post_id ) {
   if ( isset( $_POST[ 'konferencje_agenda' ] ) ) {
     update_post_meta( $post_id, 'konferencje_agenda', sanitize_text_field( $_POST[ 'konferencje_agenda' ] ) );
   }
-  if ( isset( $_POST[ 'price' ] ) ) {
-    update_post_meta( $post_id, 'price', sanitize_text_field( $_POST[ 'price' ] ) );
+  if ( isset( $_POST[ 'konferencje_price' ] ) ) {
+    update_post_meta( $post_id, 'konferencje_price', sanitize_text_field( $_POST[ 'konferencje_price' ] ) );
   }
 }
 add_action( 'save_post' , 'konferencje_meta_save' );
