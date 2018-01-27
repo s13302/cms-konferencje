@@ -12,10 +12,10 @@ function konferencje_meta_callback( $post ) {
     <input type="number" min="1" name="konferencje_sits" id="konferencje-sits" value="<?php if ( ! empty( $konferencje_stored_meta['konferencje_sits'] ) ) echo esc_attr( $konferencje_stored_meta['konferencje_sits'][0] ) ?>" required="required">
   </div>
     <div class="meta-th">
-      <label for="price">Cena</label>
+      <label for="konferencje-price">Cena</label>
     </div>
     <div class="meta-td">
-      <input type="text" name="price" id="price" value="<?php if ( ! empty( $konferencje_stored_meta['price'] ) ) echo esc_attr( $konferencje_stored_meta['price'][0] ) ?>" required="required">
+      <input type="text" name="konferencje_price" id="konferencje-price" value="<?php if ( ! empty( $konferencje_stored_meta['konferencje_price'] ) ) echo esc_attr( $konferencje_stored_meta['konferencje_price'][0] ) ?>" required="required">
     </div>
   <div class="meta-th">
     <label for="konferencje_start_date">Data Rozpoczęcia</label>
